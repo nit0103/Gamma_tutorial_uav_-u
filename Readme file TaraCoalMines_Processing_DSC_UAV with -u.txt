@@ -1,6 +1,12 @@
-cd /d/TaraCoalMines_Processing_DSC_UAV
-/bin/ls -1d Data_Descending/dims*/TSX-1.*/TDX1* > TX_list
-TX_SLC_preproc TX_list slc TX_SLC_preproc.log
+
+
+
+
+
+# Note: do not put "space" in folders
+cd /d/TaraCoalMines_Processing_DSC_UAV                                                               
+/bin/ls -1d Data_Descending/dims*/TSX-1.*/TDX1* > TX_list                                                                                            
+TX_SLC_preproc TX_list slc TX_SLC_preproc.log        # make gamma software compatible
 mk_tab slc slc slc.par SLC_tab
 
 base_calc SLC_tab slc/20260818T000659_TDX1_HH.slc.par TCM.berp_all itab_all 1 1 0.2
@@ -10,7 +16,7 @@ mk_mli_all SLC_tab mli_3_3 3 3 0 0.8 0.35
 
 
 cd DEM
-dem_import TCM_UAV.tif TCM.dem TCM.dem_par 0 1 - - 0
+dem_import TCM_UAV.tif TCM.dem TCM.dem_par 0 1 - - 0                                                ## file should be in same coordinate system
 disdem_par.exe TCM.dem TCM.dem_par&
 cd ..
 
